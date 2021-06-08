@@ -6,8 +6,8 @@ function preload() {
 background_image = loadImage("images/garden.png");
 catImage1=loadImage("images/cat1.png");
 mouseImage1=loadImage("images/mouse1.png");
-catImage2=loadImage("images/cat2.png", "images/cat3.png");
-mouseImage2=loadImage("images/mouse2.png" , "images/mouse3.png");
+catImage2=loadAnimation("images/cat2.png", "images/cat3.png");
+mouseImage2=loadAnimation("images/mouse2.png" , "images/mouse3.png");
 catImage3=loadImage("images/cat4.png");
 mouseImage3=loadImage("images/mouse4.png");
 }
@@ -17,6 +17,7 @@ function setup() {
 
     cat = createSprite(870, 600);
     cat.addAnimation("catSleeping", catImage1);
+    cat.addAnimation("catLastImage", catImage3);
     cat.scale = 0.2;
 
     mouse = createSprite(200, 600);
@@ -30,7 +31,7 @@ function draw() {
    if(cat.x - mouse.x < (cat.width - mouse.width)/2)
    { 
        cat.velocityX= 0;
-       cat.addAnimation("catLastImage", catImage3);
+       //cat.addAnimation("catLastImage", catImage3);
        cat.x =300;
        cat.scale=0.2;
        cat.changeAnimation("catLastImage");
@@ -40,7 +41,7 @@ function draw() {
    } 
 
 
-   keyPressed();
+   
   drawSprites();
 }
 
